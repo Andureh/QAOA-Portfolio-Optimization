@@ -27,4 +27,4 @@ dependencies = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/project.ipynb"]
+packages = ["src/qc803_project"]

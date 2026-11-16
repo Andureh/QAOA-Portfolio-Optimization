@@ -1,55 +1,58 @@
 # QAOA Portfolio Optimization
 
-This project explores the application of the Quantum Approximate Optimization Algorithm (QAOA) to the Portfolio Optimization problem. We analyze the performance of various classical optimizers (COBYLA, SPSA, POWELL) and investigate the impact of noise, circuit depth, and penalty factors on solution quality.
+Final project for the QC803 course at the University of Southern Denmark (SDU).
 
-This repository is structured as a Python package to support the analysis performed in `final_report.ipynb`.
+This project applies the Quantum Approximate Optimization Algorithm (QAOA) to the portfolio optimization problem. We compare several classical optimizers (COBYLA, SPSA, Powell) against a greedy baseline, and study how circuit depth, constraint penalty factors and noise affect the quality of the solutions.
 
-## Project Structure
+The full analysis and results are in the report, [`QC803FinalReport.pdf`](QC803FinalReport.pdf); the code is in the notebook [`src/qc803_project/project.ipynb`](src/qc803_project/project.ipynb).
+
+## Project structure
 
 ```text
-project_repo/
-├── pyproject.toml           # Project configuration and dependencies
-├── README.md                # Project documentation
-├── src/
-│   └── qc803_project/       # Source code package
-│       ├── __init__.py
-│       └── project.ipynb     # Core logic (Data fetching, QAOA, Solvers)
-└── QC803FinalReport.pdf      # Main analysis and results
+.
+├── pyproject.toml              # Project configuration and dependencies
+├── README.md
+├── QC803FinalReport.pdf        # Report: analysis and results
+└── src/
+    └── qc803_project/
+        ├── __init__.py
+        └── project.ipynb       # Code: data fetching, QAOA, solvers and experiments
 ```
 
-# Installation
-1. Prerequisite
-Ensure you have Python 3.11 installed.
+## Installation
 
-## Dependencies
-qiskit & qiskit-algorithms
+Requires Python 3.11.
 
-qiskit-optimization & qiskit-finance
+Dependencies:
 
-yfinance (Real market data)
+- `qiskit`, `qiskit-aer` and `qiskit-algorithms`
+- `qiskit-optimization` and `qiskit-finance`
+- `yfinance` (real market data)
+- `numpy`, `pandas` and `matplotlib`
 
-matplotlib & pandas
+Install them with:
 
-The dependecies used can be installed by:
-pip install qiskit==1.0.1 qiskit-finance==0.4.1 qiskit-aer==0.13.3 qiskit-algorithms==0.3.0 qiskit-optimization==0.6.1 matplotlib
+```bash
+pip install qiskit==1.0.1 qiskit-aer==0.13.3 qiskit-algorithms==0.3.0 qiskit-optimization==0.6.1 qiskit-finance==0.4.1 yfinance numpy pandas matplotlib
+```
 
-# Usage
-The entire analysis is contained within the Jupyter Notebook (project.ipynb).
+## Usage
 
-# Key Experiments
-The notebook covers the following analyses:
+The entire analysis is in the Jupyter notebook `src/qc803_project/project.ipynb`. Open it and run the cells in order.
 
-QAOA vs Greedy Algorithm: Benchmarking COBYLA, SPSA, and POWELL vs the Greedy Algorithm
+## Experiments
 
-Optimizer Analysis: Benchmarking COBYLA, SPSA, and POWELL vs the Greedy Algorithm
+- **QAOA vs greedy algorithm:** QAOA solutions compared with a classical greedy baseline.
+- **Optimizer analysis:** COBYLA, SPSA and Powell as the classical optimizer inside QAOA.
+- **Depth analysis:** the effect of the QAOA circuit depth.
+- **Penalty analysis:** the impact of constraint penalty factors on the approximation ratio.
+- **Noise analysis:** robustness against depolarizing noise.
 
-Depth Analysis: Observing the effect of the Depth in the QAOA algorithm
+## Authors
 
-Penalty Analysis: Analyzing the impact of constraint penalties on approximation ratios.
+- André Gomes
+- Martín Marcuello
 
-Noise Analysis: Testing robustness against depolarizing noise.
+## License
 
-# Authors
-André Gomes
-
-Martín Marcuello
+MIT, see [LICENSE](LICENSE).
